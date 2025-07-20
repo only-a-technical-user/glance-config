@@ -5,20 +5,61 @@
     - size: full
       widgets:
         - type: rss
-          title: National
+          title: International
           style: detailed-list
           feeds:
-            - url: https://fortune.com/feed/fortune-feeds/?id=3230629
-              title: Fortune
-            - url: https://www.faz.net/rss/aktuell
-              title: Frankfurter Allgemeine Zeitung
             - url: https://www.theatlantic.com/feed/all/
               title: The Atlantic
             - url: https://rss.nytimes.com/services/xml/rss/nyt/World.xml
               title: New York Times
-            - url: https://feeds.washingtonpost.com/rss/world?itid=lk_inline_manual_31
+            - url: https://feeds.washingtonpost.com/rss/world
               title: Washington Post
+            - url: https://www.theguardian.com/world/rss
+              title: The Guardian
+            - url: https://feeds.bbci.co.uk/news/world/rss.xml
+              title: BBC | World
+            - url: https://asia.nikkei.com/rss/feed/nar
+              title: Nikkei Asia
+
+        - type: rss
+          title: National
+          style: detailed-list
+          feeds:
+            - url: https://www.tagesschau.de/index~rss2.xml
+              title: Tagesschau
+            - url: https://rss.sueddeutsche.de/rss/Topthemen
+              title: Süddeutsche Zeitung
+            - url: https://www.spiegel.de/schlagzeilen/tops/index.rss
+              title: Spiegel
+            - url: https://www.faz.net/rss/aktuell
+              title: Frankfurter Allgemeine Zeitung
             - url: https://newsfeed.zeit.de/
               title: Zeit
             - url: https://bildblog.de/feed/
               title: BILDblog
+            - url: https://uebermedien.de/feed/
+              title: Übermedien
+
+        - type: rss
+          title: Financial
+          style: horizontal-cards
+          feeds:
+            - url: https://fortune.com/feed/fortune-feeds/?id=3230629
+              title: Fortune
+            - url: https://www.forbes.com/business/feed
+              title: Forbes | Business
+            - url: https://www.investing.com/rss/121899.rss
+              title: Investing.com | Analysis
+            - url: https://www.investing.com/rss/news.rss
+              title: Investing.com | News
+            - url: https://finance.yahoo.com/news/rssindex
+              title: Yahoo Finance
+
+        - type: rss
+          title: Technical
+          style: horizontal-cards
+          feeds:
+            - url: https://tldr.tech/api/rss/tech
+              title: TLDR
+            - url: https://feeds.arstechnica.com/arstechnica/technology-lab
+              title: Ars Technica
