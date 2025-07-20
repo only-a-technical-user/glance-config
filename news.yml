@@ -1,0 +1,24 @@
+- name: News
+  columns:
+    - size: small
+
+    - size: full
+      widgets:
+        - type: rss
+          title: National
+          style: detailed-list
+          feeds:
+            - url: https://fortune.com/feed/fortune-feeds/?id=3230629
+              title: Fortune
+            - url: https://www.faz.net/rss/aktuell
+              title: Frankfurter Allgemeine Zeitung
+            - url: https://www.theatlantic.com/feed/all/
+              title: The Atlantic
+            - url: https://rss.nytimes.com/services/xml/rss/nyt/World.xml
+              title: New York Times
+            - url: https://feeds.washingtonpost.com/rss/world?itid=lk_inline_manual_31
+              title: Washington Post
+            - url: https://newsfeed.zeit.de/
+              title: Zeit
+            - url: https://bildblog.de/feed/
+              title: BILDblog

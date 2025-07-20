@@ -1,0 +1,107 @@
+- name: Home
+  columns:
+    - size: small
+      widgets:
+        - type: calendar
+          first-day-of-week: monday
+
+        - type: to-do
+
+        - type: monitor
+          cache: 1m
+          title: Services
+          sites:
+            - title: Forgejo
+              url: forgejo.only-a-user.com
+              icon: si:forgejo
+            - title: OpenCloud
+              url: cloud.steppler.cloud
+              icon: sh:opencloud-light
+            - title: Immich
+              url: images.steppler.cloud
+              icon: si:immich
+
+    - size: full
+      widgets:
+        - type: search
+          search-engine: startpage
+
+        - type: split-column
+          widgets:
+            - type: rss
+              title: Tagesschau
+              style: vertical-list
+              collapse-after: 4
+              feeds:
+                - url: https://www.tagesschau.de/index~rss2.xml
+            - type: rss
+              title: Süddeutsche Zeitung
+              style: vertical-list
+              collapse-after: 4
+              feeds:
+                - url: https://rss.sueddeutsche.de/rss/Topthemen
+
+        - type: videos
+          channels:
+            - UC6sac4Q3AuQUGoUpnzd10bA
+            - UC3XTzVzaHQEd30rQbuvCtTQ
+            - UCKGMHVipEvuZudhHD05FOYA
+            - UC6IxnFzHofFJ5X2PycSMsww
+            - UCwWhs_6x42TyRM4Wstoq8HA
+          limit: 25
+
+        - type: rss
+          title: News
+          style: detailed-list
+          feeds:
+            - url: https://fortune.com/feed/fortune-feeds/?id=3230629
+              title: Fortune
+            - url: https://www.faz.net/rss/aktuell
+              title: Frankfurter Allgemeine Zeitung
+            - url: https://www.theatlantic.com/feed/all/
+              title: The Atlantic
+            - url: https://rss.nytimes.com/services/xml/rss/nyt/World.xml
+              title: New York Times
+            - url: https://feeds.washingtonpost.com/rss/world?itid=lk_inline_manual_31
+              title: Washington Post
+            - url: https://newsfeed.zeit.de/
+              title: Zeit
+
+    - size: small
+      widgets:
+        - type: clock
+          hour-format: 24h
+          timezones:
+            - timezone: Europe/Berlin
+              label: Berlin
+            - timezone: America/New_York
+              label: New York
+            - timezone: Asia/Tokyo
+              label: Tokyo
+
+        - type: weather
+          location: Munich, Germany
+          units: metric
+          hour-format: 24h
+          hide-location: true
+
+        - type: bookmarks
+          groups:
+            - title: General
+              color: 165 212 220
+              links:
+                - title: Perplexity
+                  url: https://perplexity.ai
+                - title: Github
+                  url: https://github.com
+                - title: Plane
+                  url: https://app.plane.so
+            - title: Dashboards
+              color: 241 240 204
+              links:
+                - title: Proxmox
+                  url: https://prox.only-a-user.com
+                - title: Weave
+                  url: https://lab.only-a-user.com/dashboard
+                - title: Cloudflare
+                  url: https://dash.cloudflare.com

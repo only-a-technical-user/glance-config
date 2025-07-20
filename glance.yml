@@ -1,0 +1,6 @@
+pages:
+  - $include: home.yml
+  - $include: news.yml
+  - $include: homelab.yml
+auth:
+  - $include: auth.yml
