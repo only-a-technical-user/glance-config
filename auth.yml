@@ -1,0 +1,6 @@
+secret-key: ${AUTH_SECRET_KEY}
+users:
+  admin:
+    password: ${AUTH_ADMIN_PASSWORD}
+  kilian:
+    password: ${AUTH_USER_PASSWORD}

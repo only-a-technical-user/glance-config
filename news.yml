@@ -1,6 +1,57 @@
 - name: News
+  head-widgets:
+    - type: markets
+      hide-header: true
+      markets:
+        - symbol: SPX
+          name: S&P 500
+          chart-link: https://www.investing.com/indices/us-spx-500
+        - symbol: DJI
+          name: Dow Jones
+          chart-link: https://www.investing.com/indices/us-30
+        - symbol: GDAXI
+          name: DAX
+          chart-link: https://www.investing.com/indices/germany-30
+        - symbol: FTSE
+          name: FTSE
+          chart-link: https://www.investing.com/indices/uk-100
+        - symbol: STOXX50E
+          name: Euro Stoxx 50
+          chart-link: https://www.investing.com/indices/eu-stoxx50
+        - symbol: N225
+          name: Nikkei 225
+          chart-link: https://www.investing.com/indices/japan-ni225
+
   columns:
     - size: small
+      widgets:
+        - type: markets
+          title: US Tech
+          markets:
+            - symbol: AAPL
+              name: Apple Computers
+              chart-link: https://www.investing.com/equities/apple-computer-inc
+            - symbol: AMZN
+              name: Amazon
+              chart-link: https://www.investing.com/equities/amazon-com-inc
+            - symbol: GOOGL
+              name: Google
+              chart-link: https://www.investing.com/equities/google-inc
+            - symbol: META
+              name: Meta
+              chart-link: https://www.investing.com/equities/facebook-inc
+            - symbol: MSFT
+              name: Microsoft
+              chart-link: https://www.investing.com/equities/microsoft-corp
+            - symbol: NVDA
+              name: NVIDIA
+              chart-link: https://www.investing.com/equities/nvidia-corp
+            - symbol: HPE
+              name: HPE
+              chart-link: https://www.investing.com/equities/hewlett-packard-enterprise-co
+            - symbol: IBM
+              name: IBM
+              chart-link: https://www.investing.com/equities/ibm
 
     - size: full
       widgets:
@@ -63,3 +114,27 @@
               title: TLDR
             - url: https://feeds.arstechnica.com/arstechnica/technology-lab
               title: Ars Technica
+
+    - size: small
+      widgets:
+        - type: markets
+          title: German Companies
+          markets:
+            - symbol: BMW.DE
+              name: BMW
+              chart-link: https://www.investing.com/equities/bay-mot-werke
+            - symbol: MBG.DE
+              name: Mercedes Benz
+              chart-link: https://www.investing.com/equities/daimler
+            - symbol: SAP
+              name: SAP
+              chart-link: https://www.investing.com/equities/sap-ag-ads-exch
+            - symbol: SIE.DE
+              name: Siemens
+              chart-link: https://www.investing.com/equities/siemens
+            - symbol: VOW3.DE
+              name: VW
+              chart-link: https://www.investing.com/equities/volkswagen-ag
+            - symbol: PAH3.DE
+              name: Porsche SE
+              chart-link: https://www.investing.com/equities/porsche

@@ -1,0 +1,110 @@
+- name: Homelab
+  head-widgets:
+    - $include: homelab-proxmox-status.yml
+  columns:
+    - size: small
+      widgets:
+        - type: monitor
+          cache: 1m
+          title: K3s Cluster
+          sites:
+            - title: Forgejo
+              url: forgejo.only-a-user.com
+              icon: si:forgejo
+            - title: Jenkins
+              url: lab.only-a-user.com/jenkins
+              icon: si:jenkins
+            - title: Harbor
+              url: registry.only-a-user.com
+              icon: si:harbor
+            - title: Authentik
+              url: lab.only-a-user.com/auth
+              icon: si:authentik
+
+    - size: full
+      widgets:
+        - type: split-column
+          widgets:
+            - type: repository
+              repository: only-a-technical-user/homeserver-cluster
+              pull-requests-limit: 5
+              issues-limit: 3
+              commits-limit: 3
+
+            - type: custom-api
+              title: Forgejo Repos
+              title-url: http://${FORGEJO_URL}
+              cache: 5m
+              url: http://${FORGEJO_URL}/api/v1/repos/search?limit=5
+              query:
+                limit: "10"
+              headers:
+                Authorization: "token ${FORGEJO_TOKEN}"
+              template: |
+                <style>
+                .header { display: flex; justify-content: space-between; margin-bottom: 12px; }
+                .repo { font-weight: bold; margin-top: 8px; color: var(--color-accent); }
+                .meta { font-size: 0.8em; color: var(--color-text-secondary); display: flex; justify-content: space-between; }
+                .error { color: var(--color-negative); text-align: center; }
+                </style>
+
+                {{ if ne .Response.StatusCode 200 }}
+                <div class="error">
+                    Error: {{ .Response.StatusCode }} - {{ .Response.Status }}
+                </div>
+                {{ else }}
+                {{ $data := .JSON }}
+                {{ $repos := $data.Array "data" }}
+
+                <div class="header">
+                    <div>Forgejo Server</div>
+                    {{ if gt (len $repos) 0 }}
+                    <div>{{ (index $repos 0).String "owner.login" }}</div>
+                    {{ end }}
+                </div>
+
+                {{ if eq (len $repos) 0 }}
+                    <div class="error">No repositories found</div>
+                {{ else }}
+                    {{ range $repo := $repos }}
+                    <div class="repo">{{ $repo.String "full_name" }}</div>
+                    <div class="meta">Updated: {{ ($repo.String "updated_at" | parseTime "2006-01-02T15:04:05Z07:00").Format "2006-01-02 15:04:05" }}</div>
+                    {{ end }}
+                {{ end }}
+                {{ end }}
+
+    - size: small
+      widgets:
+        - type: custom-api
+          title: Immich stats
+          cache: 1d
+          url: https://${IMMICH_URL}/api/server/statistics
+          headers:
+            x-api-key: ${IMMICH_API_KEY}
+            Accept: application/json
+          template: |
+            <div class="flex justify-between text-center">
+              <div>
+                  <div class="color-highlight size-h3">{{ .JSON.Int "photos" | formatNumber }}</div>
+                  <div class="size-h6">PHOTOS</div>
+              </div>
+              <div>
+                  <div class="color-highlight size-h3">{{ .JSON.Int "videos" | formatNumber }}</div>
+                  <div class="size-h6">VIDEOS</div>
+              </div>
+              <div>
+                  <div class="color-highlight size-h3">{{ div (.JSON.Int "usage" | toFloat) 1073741824 | toInt | formatNumber }}GB</div>
+                  <div class="size-h6">USAGE</div>
+              </div>
+            </div>
+
+        - type: monitor
+          cache: 1m
+          title: Proxmox Services
+          sites:
+            - title: OpenCloud
+              url: cloud.steppler.cloud
+              icon: sh:opencloud-light
+            - title: Immich
+              url: images.steppler.cloud
+              icon: si:immich
